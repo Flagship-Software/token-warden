@@ -120,9 +120,59 @@ Flush all pending events to the ingestion endpoint. Returns a promise that resol
 
 Flush pending events and stop the background flush interval. Call this during graceful application shutdown.
 
-## Dashboard (Coming Soon)
+## Dashboard
 
-A full-featured dashboard with budget alerts, anomaly detection, and per-feature cost drill-down is in development. Star this repo to get notified when it launches.
+Token Warden includes a self-hosted dashboard for visualizing costs, setting budgets, and detecting anomalies.
+
+### Features
+
+- **Per-feature cost breakdown** with daily spend charts and sparkline trends
+- **Feature drill-down** with model usage, cost over time, and recent request history
+- **Budget alerts** — set daily, weekly, or monthly limits per feature with configurable thresholds
+- **Anomaly detection** — automatically flags cost spikes exceeding 3x the 7-day hourly average
+- **Webhook notifications** — Slack-compatible alerts when budgets are breached
+- **Dual database support** — SQLite for local dev, PostgreSQL for production
+
+### Setup
+
+```bash
+cd apps/dashboard
+npm install
+npm run db:setup        # Create tables + seed model pricing
+npm run db:seed-demo    # Optional: generate 30 days of demo data
+npm run dev             # Start on http://localhost:3100
+```
+
+### Connect the SDK
+
+Point your Token Warden SDK at the dashboard's ingestion endpoint:
+
+```typescript
+import { warden } from "token-warden";
+
+warden.init({
+  apiKey: process.env.WARDEN_API_KEY,      // Set this on the dashboard too
+  endpoint: "http://localhost:3100/api/events",
+});
+```
+
+### Environment Variables
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `WARDEN_API_KEY` | `tw_dev_key` | Bearer token for event ingestion (set to match your SDK config) |
+| `DATABASE_URL` | SQLite (`./data/warden.db`) | Set to `postgres://...` for PostgreSQL |
+
+### Routes
+
+| Route | Description |
+| --- | --- |
+| `/` | Dashboard overview — total spend, feature breakdown, daily trend |
+| `/features/[name]` | Feature detail — cost over time, model usage, recent requests |
+| `/alerts` | Budget management and alert history |
+| `/setup` | API key display and integration guide |
+| `/api/events` | `POST` — event ingestion endpoint |
+| `/api/health` | `GET` — health check |
 
 ## Contributing
 
