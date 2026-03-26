@@ -3,7 +3,7 @@
 Track LLM costs per feature, team, and user — with budget alerts and anomaly detection.
 
 [![npm version](https://img.shields.io/npm/v/token-warden)](https://www.npmjs.com/package/token-warden)
-[![CI](https://github.com/Flagship-Software/cost-guardian/actions/workflows/ci.yml/badge.svg)](https://github.com/Flagship-Software/cost-guardian/actions/workflows/ci.yml)
+[![CI](https://github.com/Flagship-Software/token-warden/actions/workflows/ci.yml/badge.svg)](https://github.com/Flagship-Software/token-warden/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Why
@@ -120,9 +120,9 @@ Flush all pending events to the ingestion endpoint. Returns a promise that resol
 
 Flush pending events and stop the background flush interval. Call this during graceful application shutdown.
 
-## Dashboard (Coming Soon)
+## Dashboard
 
-A full-featured dashboard with budget alerts, anomaly detection, and per-feature cost drill-down is in development. Star this repo to get notified when it launches.
+Token Warden includes a self-hosted dashboard with per-feature cost breakdowns, budget alerts, anomaly detection, and webhook notifications. See the [dashboard setup guide](https://github.com/Flagship-Software/token-warden#dashboard) for details.
 
 ## Contributing
 

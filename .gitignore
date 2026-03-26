@@ -2,3 +2,6 @@ node_modules
 dist
 *.tgz
 .env*.local
+apps/dashboard/data/
+apps/dashboard/.next/
+docs/superpowers/
