@@ -1,6 +1,6 @@
 {
   "name": "token-warden",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Lightweight LLM cost tracking SDK — auto-instrument OpenAI, Anthropic, Google, Bedrock, and more",
   "license": "MIT",
   "type": "module",
