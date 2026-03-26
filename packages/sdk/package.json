@@ -1,0 +1,60 @@
+{
+  "name": "token-warden",
+  "version": "1.0.0",
+  "description": "Lightweight LLM cost tracking SDK — auto-instrument OpenAI, Anthropic, Google, Bedrock, and more",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flagship-Software/token-warden.git",
+    "directory": "packages/sdk"
+  },
+  "homepage": "https://github.com/Flagship-Software/token-warden#readme",
+  "bugs": {
+    "url": "https://github.com/Flagship-Software/token-warden/issues"
+  },
+  "keywords": [
+    "llm",
+    "cost",
+    "monitoring",
+    "openai",
+    "anthropic",
+    "google",
+    "bedrock",
+    "ai",
+    "tokens",
+    "usage",
+    "budget",
+    "tracking"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "cp ../../README.md ./README.md && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.2.0"
+  }
+}
